@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>لوازم گیمینگ محمد | Mohamad Gaming</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+:root{
+ --ice:#eaf8ff;--blue:#39aef2;--blue2:#087fc5;--navy:#102b45;
+ --ink:#18334d;--muted:#71899e;--white:#fff;--line:#dceefa;
+ --shadow:0 18px 50px rgba(42,139,197,.12);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:95px}
+body{font-family:'Vazirmatn',sans-serif;background:#f6fbff;color:var(--ink);overflow-x:hidden}
+button,input{font:inherit}
+a{color:inherit;text-decoration:none}
+::selection{background:#a9e2ff;color:#10314d}
+
+/* نوار بالایی */
+.topline{height:4px;background:linear-gradient(90deg,#b9edff,#269fe9,#d5f5ff,#1687d0);background-size:200% 100%;animation:shineLine 5s linear infinite}
+header{height:78px;background:rgba(255,255,255,.88);backdrop-filter:blur(18px);border-bottom:1px solid #e5f2fa;display:flex;align-items:center;justify-content:space-between;padding:0 6%;position:sticky;top:0;z-index:1000}
+.logo{font-size:21px;font-weight:900;letter-spacing:.4px;color:#168ed5;white-space:nowrap}
+.logo span{color:var(--navy)}
+.logo i{margin-left:7px;color:#51baf5}
+nav{display:flex;align-items:center;gap:20px}
+nav a{font-size:13px;font-weight:700;color:#526d84;position:relative;transition:.25s}
+nav a:after{content:"";position:absolute;right:0;bottom:-8px;width:0;height:2px;background:var(--blue);transition:.3s}
+nav a:hover{color:var(--blue2)}
+nav a:hover:after{width:100%}
+.header-actions{display:flex;align-items:center;gap:10px}
+.cart{border:1px solid #d7effd;background:#eff9ff;color:#168ed5;border-radius:13px;padding:10px 14px;font-size:13px;font-weight:800;white-space:nowrap}
+.cart i{margin-left:6px}
+.cart span{display:inline-grid;place-items:center;min-width:21px;height:21px;border-radius:50%;background:#219fe9;color:white;margin-right:5px;font-size:11px}
+.menu-toggle{display:none;border:0;background:#eaf7ff;color:#168ed5;width:42px;height:42px;border-radius:12px;cursor:pointer}
+
+/* هدر تصویری */
+.hero{min-height:510px;position:relative;isolation:isolate;display:flex;align-items:center;padding:65px 9%;background:linear-gradient(90deg,rgba(232,248,255,.96) 0%,rgba(232,248,255,.78) 42%,rgba(232,248,255,.12) 100%),url('./img/head.jpg') center/cover no-repeat;overflow:hidden}
+.hero:before,.hero:after{content:"";position:absolute;border:1px solid rgba(54,171,235,.2);border-radius:50%;z-index:-1;animation:orbit 18s linear infinite}
+.hero:before{width:380px;height:380px;left:-100px;top:-130px}
+.hero:after{width:230px;height:230px;left:30px;bottom:-120px;animation-direction:reverse}
+.hero-content{max-width:590px;animation:heroEnter 1s cubic-bezier(.2,.8,.2,1) both}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;padding:8px 14px;border:1px solid #c6eaff;background:#ffffffb8;border-radius:30px;color:#168ed5;font-size:12px;font-weight:800;margin-bottom:18px}
+.eyebrow i{animation:pulse 1.8s infinite}
+.hero h1{font-size:clamp(34px,5vw,61px);line-height:1.35;font-weight:900;color:#102b45}
+.hero h1 span{color:#168ed5;text-shadow:0 8px 30px #55bdf566}
+.hero p{max-width:500px;margin:18px 0 28px;line-height:2.1;color:#47647d;font-size:15px}
+.primary-btn{display:inline-flex;align-items:center;gap:12px;border:0;border-radius:14px;padding:14px 23px;background:linear-gradient(135deg,#49baff,#168bd2);color:#fff;font-weight:800;box-shadow:0 12px 28px #229de94d;cursor:pointer;transition:.3s}
+.primary-btn:hover{transform:translateY(-4px);box-shadow:0 17px 35px #229de966}
+.primary-btn i{transition:.3s}
+.primary-btn:hover i{transform:translateX(-5px)}
+.hero-bubble{position:absolute;left:12%;bottom:45px;width:75px;height:75px;border-radius:25px;background:#ffffff80;backdrop-filter:blur(8px);display:grid;place-items:center;color:#269fe9;font-size:30px;box-shadow:var(--shadow);animation:float 4s ease-in-out infinite}
+
+/* مزیت ها و جستجو */
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:17px;padding:30px 8%;position:relative;z-index:2;margin-top:-12px}
+.feature{display:flex;align-items:center;gap:15px;padding:19px 22px;border-radius:19px;background:#fff;border:1px solid #e5f2fa;box-shadow:var(--shadow);transition:.35s}
+.feature:hover{transform:translateY(-6px);border-color:#a8ddfb}
+.feature-icon{width:48px;height:48px;flex-shrink:0;display:grid;place-items:center;border-radius:15px;background:linear-gradient(135deg,#e8f8ff,#cceeff);color:#168ed5;font-size:20px}
+.feature strong{display:block;font-size:14px}
+.feature small{display:block;color:var(--muted);font-size:11px;margin-top:4px}
+.search-wrap{padding:12px 8% 28px}
+.search-box{max-width:560px;margin:auto;display:flex;align-items:center;gap:12px;padding:5px 17px;background:#fff;border:1px solid var(--line);border-radius:15px;box-shadow:0 8px 25px #4da9db12;transition:.3s}
+.search-box:focus-within{border-color:#78cafa;box-shadow:0 0 0 4px #56b9f21c}
+.search-box i{color:#229fe9}
+.search-box input{width:100%;border:0;outline:0;padding:12px 0;background:transparent;color:var(--ink);font-size:13px}
+
+/* سکشن ها */
+.section{padding:65px 7%;position:relative}
+.section:nth-of-type(even){background:linear-gradient(180deg,#f0f9ff 0%,#f9fcff 100%)}
+.section-heading{text-align:center;margin-bottom:34px}
+.section-kicker{font-size:11px;color:#168ed5;font-weight:900;letter-spacing:2px;text-transform:uppercase}
+.section-heading h2{font-size:clamp(23px,3vw,32px);font-weight:900;color:var(--navy);margin:8px 0}
+.section-heading h2 i{color:#269fe9;margin-left:9px;font-size:.83em}
+.section-heading p{font-size:13px;color:#8196a8}
+.section-heading:after{content:"";display:block;width:55px;height:4px;border-radius:10px;background:linear-gradient(90deg,#bdeaff,#249fe8);margin:15px auto 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(195px,1fr));gap:22px}
+.product{position:relative;background:linear-gradient(145deg,#fff,#fafdff);border:1px solid #e2f0f9;border-radius:22px;padding:14px;text-align:center;overflow:hidden;transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s,border-color .3s;box-shadow:0 7px 22px #367da30b}
+.product:before{content:"";position:absolute;inset:0 auto auto 0;width:100%;height:4px;background:linear-gradient(90deg,#c9efff,#38aef2,#d9f5ff);transform:scaleX(0);transform-origin:right;transition:transform .4s}
+.product:hover{transform:translateY(-11px) scale(1.015);box-shadow:0 22px 42px #268fc52b;border-color:#a9ddf8}
+.product:hover:before{transform:scaleX(1)}
+.product-media{height:190px;border-radius:16px;background:radial-gradient(circle at 50% 45%,#eaf8ff 0,#f8fcff 66%);display:grid;place-items:center;overflow:hidden;position:relative}
+.product-media:after{content:"";position:absolute;width:125px;height:125px;border-radius:50%;background:#cceeff45;filter:blur(18px);transition:.4s}
+.product img{width:100%;height:100%;object-fit:contain;position:relative;z-index:1;transition:transform .55s cubic-bezier(.2,.8,.2,1),filter .4s}
+.product:hover img{transform:scale(1.12) rotate(-2deg);filter:drop-shadow(0 12px 12px #73bfe733)}
+.product h3{font-size:14px;margin:15px 0 5px;color:#203d57}
+.product p{color:#8ba0b1;font-size:11px}
+.product-bottom{display:flex;align-items:center;justify-content:center;margin-top:13px}
+.add{border:1px solid #d8effd;background:#eff9ff;color:#168ed5;padding:9px 15px;border-radius:11px;font-size:12px;font-weight:800;cursor:pointer;transition:.3s}
+.add i{margin-left:6px}
+.add:hover{background:linear-gradient(135deg,#48baff,#168bd2);color:white;border-color:transparent;box-shadow:0 8px 20px #249fe944}
+.add.added{background:#e8fff4;color:#15965c;border-color:#c4f1dc}
+.product.hidden{display:none}
+
+/* بخش JBL */
+.jbl-section{margin:35px 5%;padding:55px 5%;border-radius:30px;background:linear-gradient(120deg,#ffe7f0,#f5fbff 55%,#e5f6ff);position:relative;overflow:hidden;transition:background .6s,box-shadow .5s;box-shadow:var(--shadow)}
+.jbl-section:before{content:"JBL";position:absolute;left:-20px;bottom:-80px;font-size:220px;font-weight:900;color:#ffffff55;line-height:1;pointer-events:none}
+.jbl-layout{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:30px;max-width:900px;margin:auto;position:relative;z-index:1}
+.jbl-copy h2{font-size:clamp(27px,4vw,42px);color:#132e48;margin:10px 0}
+.jbl-copy p{color:#617b91;line-height:2;font-size:14px}
+.jbl-card{max-width:390px;width:100%;margin:auto;background:#ffffffc9;backdrop-filter:blur(12px);padding:22px;border:1px solid #ffffff;border-radius:25px;text-align:center;box-shadow:0 18px 45px #173b5418;transition:.4s}
+.jbl-card:hover{transform:translateY(-7px) rotate(.5deg)}
+.jbl-card img{width:100%;height:245px;object-fit:contain;transition:opacity .2s,transform .4s}
+.jbl-card h3{margin:8px 0;color:#203d57}
+.jbl-card p{font-size:12px;color:#8498a8}
+.colors{display:flex;justify-content:center;gap:15px;margin-top:17px}
+.color-btn{width:37px;height:37px;border-radius:50%;border:4px solid white;box-shadow:0 0 0 1px #9db8ca;cursor:pointer;transition:.25s}
+.color-btn:hover,.color-btn.active{transform:scale(1.18);box-shadow:0 0 0 3px #249fe9}
+.pink{background:#f4a8c5}.blue{background:#268dff}.black{background:#20252b}
+
+/* سری TT */
+.tt{background:linear-gradient(120deg,#f1eaff,#e9f8ff)!important;border-radius:28px;margin:35px 5%;padding:55px 4%}
+.tt .product-media{background:radial-gradient(circle,#f0eaff,#f8fcff 70%)}
+
+
+/* اتاقک نمایش کامل ایرپاد */
+.product-room-trigger{cursor:pointer}
+.product-room-trigger .product-media{background:radial-gradient(circle at 50% 45%,#dff4ff 0,#f8fcff 72%)}
+.product-room-trigger .room-hint{display:inline-flex;align-items:center;gap:6px;margin-top:9px;padding:7px 11px;border-radius:20px;background:#eaf7ff;color:#168ed5;font-size:10px;font-weight:800}
+.product-room-trigger .room-hint i{font-size:11px}
+.product-room-trigger:hover .room-hint{background:#d8f0ff}
+.product-room-trigger img{object-fit:contain!important}
+.product-room-modal{position:fixed;inset:0;z-index:3000;display:none;align-items:center;justify-content:center;padding:22px;background:rgba(7,27,44,.72);backdrop-filter:blur(12px)}
+.product-room-modal.open{display:flex;animation:roomFade .25s ease both}
+.room-panel{position:relative;width:min(900px,100%);min-height:470px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:25px;padding:30px;border:1px solid #ffffffa8;border-radius:30px;background:linear-gradient(145deg,#fff,#edf8ff);box-shadow:0 30px 90px #061b2b66;animation:roomPop .4s cubic-bezier(.2,.8,.2,1) both}
+.room-close{position:absolute;top:15px;left:15px;width:42px;height:42px;border:0;border-radius:14px;background:#e5f5ff;color:#167fbd;font-size:18px;cursor:pointer;z-index:2;transition:.25s}
+.room-close:hover{transform:rotate(90deg);background:#d5efff}
+.room-image-stage{min-height:390px;display:grid;place-items:center;position:relative;overflow:hidden;border-radius:24px;background:radial-gradient(circle,#d9f1ff 0,#f5fbff 65%,#e8f7ff 100%)}
+.room-image-stage:before{content:"";position:absolute;width:270px;height:270px;border-radius:50%;background:#9edfff55;filter:blur(35px)}
+.room-image-stage img{position:relative;z-index:1;width:100%;height:390px;object-fit:contain;padding:22px;filter:drop-shadow(0 20px 22px #3d789633);animation:roomImageIn .5s ease both}
+.room-info{padding:20px 12px}
+.room-label{display:inline-flex;align-items:center;gap:8px;padding:8px 13px;border-radius:30px;background:#dff3ff;color:#168ed5;font-size:11px;font-weight:900}
+.room-info h2{font-size:clamp(24px,4vw,36px);color:#102b45;margin:20px 0 10px}
+.room-info p{font-size:13px;line-height:2;color:#71899e}
+.room-info .room-note{display:flex;align-items:center;gap:9px;margin:22px 0;padding:13px;border-radius:15px;background:#f0f9ff;color:#50748e;font-size:12px}
+.room-info .add{padding:12px 19px;font-size:13px}
+@keyframes roomFade{from{opacity:0}to{opacity:1}}
+@keyframes roomPop{from{opacity:0;transform:translateY(25px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes roomImageIn{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:scale(1)}}
+@media(max-width:650px){
+ .product-room-modal{padding:12px}
+ .room-panel{grid-template-columns:1fr;gap:12px;padding:18px;border-radius:23px;max-height:92vh;overflow:auto}
+ .room-image-stage{min-height:270px}
+ .room-image-stage img{height:270px;padding:15px}
+ .room-info{padding:8px 5px 12px;text-align:center}
+ .room-info h2{margin:12px 0 6px}
+ .room-info .room-note{justify-content:center;margin:13px 0}
+}
+
+
+/* فضای شناور آبی و آیکون‌های گیمینگ در پس‌زمینه */
+body{background:linear-gradient(135deg,#f8fcff 0%,#eef8ff 48%,#f9fcff 100%)}
+.ambient-icons{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;opacity:.72}
+.ambient-icons:before,.ambient-icons:after{content:"";position:absolute;width:390px;height:390px;border-radius:50%;filter:blur(75px);background:#80d4ff35;animation:ambientPulse 9s ease-in-out infinite alternate}
+.ambient-icons:before{top:5%;left:-130px}.ambient-icons:after{right:-150px;bottom:3%;background:#42aaff24;animation-delay:-4s}
+.ambient-icons i{position:absolute;color:#168ed5;opacity:.12;text-shadow:0 0 24px #55bdff;animation:iconDrift 12s ease-in-out infinite;will-change:transform}
+.ambient-icons i:nth-child(1){top:13%;left:7%;font-size:36px;animation-delay:-2s}
+.ambient-icons i:nth-child(2){top:32%;right:8%;font-size:43px;animation-delay:-7s}
+.ambient-icons i:nth-child(3){top:58%;left:4%;font-size:32px;animation-delay:-4s}
+.ambient-icons i:nth-child(4){top:78%;right:12%;font-size:38px;animation-delay:-9s}
+.ambient-icons i:nth-child(5){top:8%;right:31%;font-size:28px;animation-delay:-5s}
+.ambient-icons i:nth-child(6){top:48%;left:46%;font-size:34px;animation-delay:-1s}
+.ambient-icons i:nth-child(7){top:88%;left:28%;font-size:30px;animation-delay:-6s}
+.ambient-icons i:nth-child(8){top:68%;right:38%;font-size:27px;animation-delay:-3s}
+.ambient-icons i:nth-child(9){top:23%;left:61%;font-size:25px;animation-delay:-8s}
+.ambient-icons i:nth-child(10){top:92%;right:47%;font-size:29px;animation-delay:-10s}
+body > :not(#ambientIcons):not(.product-room-modal){position:relative;z-index:1}
+@keyframes iconDrift{0%,100%{transform:translate3d(0,0,0) rotate(-9deg)}50%{transform:translate3d(13px,-24px,0) rotate(10deg)}}
+@keyframes ambientPulse{from{transform:scale(.85);opacity:.55}to{transform:scale(1.2);opacity:1}}
+.product-room-trigger{cursor:pointer}
+.product-room-trigger .product-media{background:radial-gradient(circle at 50% 45%,#dff4ff 0,#f8fcff 72%)}
+.product-room-trigger .room-hint{display:inline-flex;align-items:center;gap:6px;margin-top:9px;padding:7px 11px;border-radius:20px;background:#eaf7ff;color:#168ed5;font-size:10px;font-weight:800}
+.product-room-trigger .room-hint i{font-size:11px}
+.product-room-trigger:hover .room-hint{background:#d8f0ff}
+.product-room-trigger img{object-fit:contain!important}
+.jbl-card{cursor:pointer}
+.jbl-card .room-hint{display:inline-flex;align-items:center;gap:6px;margin-top:13px;padding:7px 11px;border-radius:20px;background:#eaf7ff;color:#168ed5;font-size:10px;font-weight:800}
+@media(prefers-reduced-motion:reduce){.ambient-icons i,.ambient-icons:before,.ambient-icons:after{animation:none!important}}
+
+
+.image-error-note{position:absolute;z-index:3;left:10px;right:10px;bottom:10px;padding:8px 10px;border-radius:10px;background:#fff1f1;color:#b42318;font-size:10px;text-align:center;line-height:1.8}
+.jbl-card{position:relative}
+.room-image-stage{position:relative}
+
+/* فوتر */
+footer{background:radial-gradient(circle at 15% 0%,#1e5278,#102b45 48%);color:#fff;padding:55px 8% 25px;text-align:center;position:relative;overflow:hidden}
+.footer-logo{font-size:26px;font-weight:900;color:#70ceff;letter-spacing:1px}
+.footer-logo span{color:#fff}
+footer .footer-icon{font-size:27px;color:#70ceff;margin-bottom:15px}
+footer p{margin-top:12px;color:#c5d9e8;font-size:13px}
+.socials{display:flex;justify-content:center;gap:12px;margin:22px 0}
+.socials a{width:40px;height:40px;display:grid;place-items:center;border:1px solid #ffffff33;border-radius:13px;color:#dff5ff;transition:.3s}
+.socials a:hover{background:#39aef2;color:#fff;transform:translateY(-5px)}
+.copyright{border-top:1px solid #ffffff20;margin-top:30px;padding-top:20px;font-size:11px;color:#91aec3}
+
+/* انیمیشن ورود اسلایدها */
+.reveal{opacity:0;transform:translateY(45px) scale(.985);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.75,.2,1)}
+.reveal.visible{opacity:1;transform:translateY(0) scale(1)}
+.product.reveal{transition-delay:var(--delay,0ms)}
+@keyframes heroEnter{from{opacity:0;transform:translateX(55px)}to{opacity:1;transform:translateX(0)}}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-16px) rotate(5deg)}}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.3);opacity:.65}}
+@keyframes orbit{to{transform:rotate(360deg)}}
+@keyframes shineLine{to{background-position:200% 0}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+@media(max-width:900px){header{padding:0 4%}nav{gap:11px}nav a{font-size:11px}.features{padding-left:5%;padding-right:5%}}
+@media(max-width:720px){
+ header{height:70px}.menu-toggle{display:block}
+ nav{display:none;position:absolute;top:70px;right:0;left:0;background:#fff;padding:18px 6%;box-shadow:0 15px 25px #1c63831a;flex-direction:column;align-items:stretch;gap:0}
+ nav.open{display:flex}nav a{padding:12px 0;border-bottom:1px solid #eef5fa;font-size:13px}
+ .hero{min-height:420px;padding:45px 7%;background-position:60% center}
+ .hero-bubble{left:7%;bottom:20px;width:58px;height:58px;font-size:23px}
+ .features{grid-template-columns:1fr;gap:10px;margin-top:0;padding-top:18px}
+ .feature{padding:13px 16px}.feature-icon{width:42px;height:42px}
+ .section{padding:48px 5%}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+ .product{padding:9px;border-radius:17px}.product-media{height:145px}.product h3{font-size:12px}
+ .add{font-size:10px;padding:8px 9px}.jbl-layout{grid-template-columns:1fr;text-align:center}.jbl-copy{order:0}.jbl-card{order:1}
+ .jbl-section,.tt{margin:22px 3%;padding:38px 4%}
+}
+@media(max-width:380px){.grid{grid-template-columns:1fr}.product-media{height:190px}.logo{font-size:17px}.cart{font-size:11px;padding:9px}}
+
+/* ===== نسخه موبایل اختصاصی Mohamad Gaming ===== */
+@media (max-width: 768px){
+ html{scroll-behavior:smooth}
+ body{overflow-x:hidden;font-size:14px}
+ .container,.wrap,.section-inner{width:min(100% - 26px,560px)!important;margin-inline:auto}
+ header{padding:10px 0}
+ header .container,header .wrap{gap:10px}
+ .logo{font-size:18px}
+ .logo img{max-width:38px}
+ nav{display:none}
+ .menu-toggle{display:flex!important;align-items:center;justify-content:center}
+ .mobile-nav{position:fixed;inset:68px 12px auto;z-index:2500;padding:14px;border:1px solid #d8efff;border-radius:20px;background:#ffffffed;backdrop-filter:blur(16px);box-shadow:0 18px 50px #0b416022}
+ .mobile-nav.open{display:grid;gap:8px}
+ .mobile-nav a{padding:12px 14px;border-radius:12px;color:#17415e;font-weight:800}
+ .hero{min-height:490px;padding:38px 0 30px}
+ .hero .container,.hero .wrap{display:flex;flex-direction:column;align-items:stretch;gap:20px}
+ .hero h1{font-size:clamp(30px,9vw,46px);line-height:1.45}
+ .hero p{font-size:13px;line-height:2}
+ .hero img{width:100%;max-height:220px;object-fit:contain}
+ .hero .hero-actions{display:flex;flex-wrap:wrap;gap:9px}
+ .hero .hero-actions a,.hero .hero-actions button{flex:1;min-width:125px}
+ .section{padding:42px 0}
+ .section-title{font-size:23px;margin-bottom:8px}
+ .section-subtitle{font-size:12px}
+ .product-grid,.products-grid,.grid-products{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:11px!important}
+ .product{min-width:0;border-radius:17px;overflow:hidden}
+ .product-media{height:155px!important;min-height:155px!important;padding:8px!important}
+ .product-media img{width:100%;height:100%;object-fit:contain!important}
+ .product h3{font-size:12px;line-height:1.8}
+ .product .price{font-size:12px}
+ .product .add{font-size:11px;padding:9px 10px}
+ .product .room-hint{font-size:9px;padding:6px 8px}
+ .jbl-card{padding:18px!important;border-radius:20px}
+ .jbl-card img{max-width:100%;height:210px;object-fit:contain}
+ .jbl-card h2{font-size:21px}
+ .color-btn{width:28px;height:28px}
+ .category-strip{display:flex;overflow-x:auto;gap:9px;padding:5px 2px 12px;scroll-snap-type:x mandatory}
+ .category-strip>*{flex:0 0 auto;scroll-snap-align:start}
+ .product-room-modal{padding:10px}
+ .room-panel{width:100%;max-width:480px;max-height:94dvh;overflow-y:auto;grid-template-columns:1fr;gap:8px;padding:14px;border-radius:22px}
+ .room-close{top:10px;left:10px;width:38px;height:38px}
+ .room-image-stage{min-height:250px;max-height:36dvh;border-radius:17px}
+ .room-image-stage img{height:34dvh;max-height:270px;padding:12px;object-fit:contain}
+ .room-info{padding:8px 5px 12px;text-align:center}
+ .room-info h2{font-size:23px;margin:10px 0 5px}
+ .room-info p{font-size:12px}
+ .room-info .room-note{justify-content:center;margin:10px 0;padding:10px}
+ .room-info .add{width:100%;padding:13px}
+ footer{padding:30px 0 90px}
+ footer .footer-grid{grid-template-columns:1fr 1fr!important;gap:18px}
+ .cart-float{position:fixed;right:14px;bottom:14px;z-index:2200}
+ .ambient-icon{opacity:.25!important}
+}
+@media(max-width:380px){
+ .product-grid,.products-grid,.grid-products{gap:8px!important}
+ .product-media{height:130px!important;min-height:130px!important}
+ .product h3{font-size:11px}
+ .hero{min-height:440px}
+ .hero h1{font-size:29px}
+ footer .footer-grid{grid-template-columns:1fr!important}
+}
+@media(min-width:769px){
+ .mobile-nav{display:none!important}
+}
+
+</style>
+</head>
+<body>
+<div class="ambient-icons" id="ambientIcons" aria-hidden="true">
+ <i class="fa-solid fa-gamepad"></i><i class="fa-solid fa-headphones"></i>
+ <i class="fa-solid fa-keyboard"></i><i class="fa-solid fa-computer-mouse"></i>
+ <i class="fa-brands fa-bluetooth-b"></i><i class="fa-solid fa-desktop"></i>
+ <i class="fa-solid fa-microchip"></i><i class="fa-solid fa-wifi"></i>
+ <i class="fa-solid fa-bolt"></i><i class="fa-solid fa-compact-disc"></i>
+</div>
+<div class="topline"></div>
+
+<header>
+ <a class="logo" href="#"><i class="fa-solid fa-gamepad"></i> MOHAMAD <span>GAMING</span></a>
+ <nav id="mainNav">
+  <a href="#">خانه</a><a href="#headphones">هدفون</a><a href="#jbl">JBL</a>
+  <a href="#airpods">ایرپاد</a><a href="#keyboard">کیبورد</a><a href="#case">کیس</a>
+  <a href="#monitor">مانیتور</a><a href="#mouse">موس</a>
+ </nav>
+ <div class="header-actions">
+  <div class="cart"><i class="fa-solid fa-basket-shopping"></i> سبد خرید <span id="cartCount">0</span></div>
+  <button class="menu-toggle" id="menuToggle" aria-label="باز کردن منو"><i class="fa-solid fa-bars"></i></button>
+ </div>
+
+<button class="menu-toggle" id="mobileMenuToggle" aria-label="باز کردن منو" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+<div class="mobile-nav" id="mobileNav"><a href="#">خانه</a>
+<a href="#headphones">هدفون</a>
+<a href="#jbl">JBL</a>
+<a href="#airpods">ایرپاد</a>
+<a href="#keyboard">کیبورد</a>
+<a href="#case">کیس</a>
+<a href="#monitor">مانیتور</a>
+<a href="#mouse">موس</a></div>
+</header>
+
+<section class="hero">
+ <div class="hero-content">
+  <div class="eyebrow"><i class="fa-solid fa-bolt"></i> LEVEL UP YOUR GAME</div>
+  <h1>دنیای حرفه‌ای<br><span>تجهیزات گیمینگ</span></h1>
+  <p>از هدفون و ایرپاد تا تجهیزات کامل ستاپ گیمینگ؛ اینجا قراره انتخاب بعدیِ ستاپ تو پیدا بشه.</p>
+  <a class="primary-btn" href="#headphones">کشف محصولات <i class="fa-solid fa-arrow-left"></i></a>
+ </div>
+ <div class="hero-bubble"><i class="fa-solid fa-headset"></i></div>
+</section>
+
+<div class="features">
+ <div class="feature reveal"><div class="feature-icon"><i class="fa-solid fa-headset"></i></div><div><strong>تجهیزات متنوع</strong><small>برای ستاپ مورد علاقه‌ات</small></div></div>
+ <div class="feature reveal"><div class="feature-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div><div><strong>طراحی مدرن</strong><small>انتخابی جذاب برای گیمرها</small></div></div>
+ <div class="feature reveal"><div class="feature-icon"><i class="fa-solid fa-gamepad"></i></div><div><strong>دنیای گیمینگ</strong><small>همه‌چیز در یک‌جا</small></div></div>
+</div>
+
+<div class="search-wrap">
+ <div class="search-box"><i class="fa-solid fa-magnifying-glass"></i><input id="search" type="search" placeholder="اسم محصول مورد نظرت رو جستجو کن..."></div>
+</div>
+
+<section class="section" id="headphones">
+ <div class="section-heading reveal"><span class="section-kicker">AUDIO GEAR</span><h2><i class="fa-solid fa-headphones"></i> هدفون‌های گیمینگ</h2><p>صدای بازی رو با جزئیات بیشتری تجربه کن</p></div>
+ <div class="grid">
+  <div class="product reveal"><div class="product-media"><img src="./img/hedfon/h1.jpg" alt="هدفون گیمینگ ۱"></div><h3>هدفون گیمینگ ۱</h3><p>Gaming Headset</p><div class="product-bottom"><button class="add"><i class="fa-solid fa-cart-plus"></i> افزودن به سبد</button></div></div>
+  <div class="product reveal"><div class="product-media"><img src="./img/hedfon/h2.jpg" alt="هدفون گیمینگ ۲"></div><h3>هدفون گیمینگ ۲</h3><p>Gaming Headset</p><div class="product-bottom"><button class="add"><i class="fa-solid fa-cart-plus"></i> افزودن به سبد</button></div></div>
+  <div class="product reveal"><div class="product-media"><img src="./img/hedfon/h3.jpg" alt="هدفون گیمینگ ۳"></div><h3>هدفون گیمینگ ۳</h3><p>Gaming Headset</p><div class="product-bottom"><button class="add"><i class="fa-solid fa-cart-plus"></i> افزودن به سبد</button></div></div>
+  <div class="product reveal"><div class="product-media"><img src="./img/hedfon/h4.jpg" alt="هدفون گیمینگ ۴"></div><h3>هدفون گیمینگ ۴</h3><p>Gaming Headset</p><div class="product-bottom"><button class="add"><i class="fa-solid fa-cart-plus"></i> افزودن به سبد</button></div></div>
+  <div class="product reveal"><div class="product-media"><img src="./img/hedfon/h5.jpg" alt="هدفون گیمینگ ۵"></div><h3>هدفون گیمینگ ۵</h3><p>Gaming Headset</p><div class="product-bottom"><button class="add"><i class="fa-solid fa-cart-plus"></i> افزودن به سبد</button></div></div>
+ </div>
+</section>
+
+<section class="jbl-section reveal" id="jbl">
+ <div class="jbl-layout">
+  <div class="jbl-copy"><span class="section-kicker">JBL COLLECTION</span><h2><i class="fa-brands fa-bluetooth-b"></i> هدفون‌های JBL</h2><p>رنگ دلخواهت رو انتخاب کن و ظاهر این بخش رو با همون رنگ ببین. هر انتخاب، عکس و فضای مخصوص خودش رو داره.</p></div>
+  <div class="jbl-card">
+   <img id="jblImage" src="./img/hedfon/jbl1.jpg" alt="هدفون JBL صورتی">
+   <h3 id="jblName">هدفون JBL صورتی</h3><p>رنگ مورد علاقه‌ات رو انتخاب کن</p>
+   <div class="colors">
+    <button class="color-btn pink active" onclick="changeJBL(1)" aria-label="صورتی" title="صورتی"></button>
+    <button class="color-btn blue" onclick="changeJBL(2)" aria-label="آبی" title="آبی"></button>
+    <button class="color-btn black" onclick="changeJBL(3)" aria-label="مشکی" title="مشکی"></button>
+   </div>
+   <div class="product-bottom" style="justify-content:center;margin-top:16px"><button class="add"><i class="fa-solid fa-cart-plus"></i> افزودن به سبد</button></div>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="airpods">
+ <div class="section-heading reveal"><span class="section-kicker">WIRELESS SOUND</span><h2><i class="fa-solid fa-ear-listen"></i> ایرپاد</h2><p>مدل‌های مختلف برای استفاده روزمره و گوش دادن به موسیقی</p></div>
+ <div class="grid">
+  <div class="product reveal"><div class="product-media"><img src="./img/airpod/ap12.jpg" alt="ایرپاد مدل ۱۲"></div><h3>ایرپاد مدل ۱۲</h3><div class="product-bottom"><button class="add"><i class="fa-solid fa-cart-plus"></i> افزودن به سبد</button></div></div>
+  <div class="product reveal"><div class="product-media"><img src="./img/airpod/ap13.jpg" alt="ایرپاد مدل ۱۳"></div><h3>ایرپاد مدل ۱۳</h3><div class="product-bottom"><button class="add"><i class="fa-solid fa-cart-plus"></i> افزودن به سبد</button></div></div>
+  <div class="product reveal"><div class="product-media"><img src="./img/airpod/blak12.jpg" alt="ایرپاد JBL مشکی"></div><h3>ایرپاد JBL مشکی</h3><div class="product-bottom"><button class="add"><i class="fa-solid fa-cart-plus"></i> افزودن به سبد</button></div></div>
+ </div>
+</section>
+
+<section class="section tt">
+ <div class="section-heading reveal"><span class="section-kicker">TT SERIES</span><h2><i class="fa-solid fa-swatchbook"></i> سری TT</h2><p>مدل‌های رنگارنگ سری TT</p></div>
+ <div class="grid">
+  <div class="product reveal"><div class="product-media"><img src="./img/airpod/tt1.jpg" alt="ایرپاد TT مدل ۱"></div><h3>ایرپاد TT مدل ۱</h3><div class="product-bottom"><button class="add"><i class="fa-solid fa-cart-plus"></i> افزودن به سبد</button></div></div>
+  <div class="product reveal"><div class="product-media"><img src="./img/airpod/tt2.jpg" alt="ایرپاد TT مدل ۲"></div><h3>ایرپاد TT مدل ۲</h3><div class="product-bottom"><button class="add"><i class="fa-solid fa-cart-plus"></i> افزودن به سبد</button></div></div>
+  <div class="product reveal"><div class="product-media"><img src="./img/airpod/tt3.jpg" alt="ایرپاد TT مدل ۳"></div><h3>ایرپاد TT مدل ۳</h3><div class="product-bottom"><button class="add"><i class="fa-solid fa-cart-plus"></i> افزودن به سبد</button></div></div>
+  <div class="product reveal"><div class="product-media"><img src="./img/airpod/tt4.jpg" alt="ایرپاد TT مدل ۴"></div><h3>ایرپاد TT مدل ۴</h3><div class="product-bottom"><button class="add"><i class="fa-solid fa-cart-plus"></i> افزودن به سبد</button></div></div>
+ </div>
+</section>
+
+<section class="section" id="keyboard">
+ <div class="section-heading reveal"><span class="section-kicker">KEYBOARD</span><h2><i class="fa-solid fa-keyboard"></i> کیبورد گیمینگ</h2><p>کنترل دقیق‌تر، تجربه بهتر</p></div><div class="grid" id="keyboardGrid"></div>
+</section>
+<section class="section" id="case">
+ <div class="section-heading reveal"><span class="section-kicker">PC CASE</span><h2><i class="fa-solid fa-computer"></i> کیس گیمینگ</h2><p>قلب ستاپ گیمینگت</p></div><div class="grid" id="caseGrid"></div>
+</section>
+<section class="section" id="monitor">
+ <div class="section-heading reveal"><span class="section-kicker">DISPLAY</span><h2><i class="fa-solid fa-desktop"></i> مانیتور</h2><p>تصویر شفاف‌تر برای بازی و کار</p></div><div class="grid" id="monitorGrid"></div>
+</section>
+<section class="section" id="mouse">
+ <div class="section-heading reveal"><span class="section-kicker">GAMING MOUSE</span><h2><i class="fa-solid fa-computer-mouse"></i> موس گیمینگ</h2><p>دقت و سرعت در هر حرکت</p></div><div class="grid" id="mouseGrid"></div>
+</section>
+
+
+<!-- پنجره اتاقک نمایش محصول -->
+<div class="product-room-modal" id="productRoom" aria-hidden="true">
+ <div class="room-panel" role="dialog" aria-modal="true" aria-labelledby="roomTitle">
+  <button class="room-close" id="roomClose" aria-label="بستن"><i class="fa-solid fa-xmark"></i></button>
+  <div class="room-image-stage"><img id="roomImage" src="" alt=""></div>
+  <div class="room-info">
+   <span class="room-label"><i class="fa-solid fa-cube"></i> اتاقک نمایش محصول</span>
+   <h2 id="roomTitle">نام محصول</h2>
+   <p>نمای کامل محصول بدون برش و زوم؛ عکس را با اندازه مناسب ببین.</p>
+   <div class="room-note"><i class="fa-solid fa-expand"></i> تصویر کامل محصول در قاب اختصاصی</div>
+   <button class="add" id="roomAdd"><i class="fa-solid fa-cart-plus"></i> افزودن به سبد</button>
+  </div>
+ </div>
+</div>
+
+<footer>
+ <div class="footer-icon"><i class="fa-solid fa-gamepad"></i></div>
+ <div class="footer-logo">MOHAMAD <span>GAMING</span></div>
+ <p>فروشگاه لوازم گیمینگ محمد</p>
+ <div class="socials">
+  <a href="#" aria-label="اینستاگرام"><i class="fa-brands fa-instagram"></i></a>
+  <a href="#" aria-label="تلگرام"><i class="fa-brands fa-telegram"></i></a>
+  <a href="#" aria-label="واتساپ"><i class="fa-brands fa-whatsapp"></i></a>
+ </div>
+ <div class="copyright">© 2026 Mohamad Gaming. All Rights Reserved.</div>
+</footer>
+
+<script>
+// ساخت کارت‌های دسته‌بندی‌شده با همان مسیر عکس‌های پروژه
+function createProducts(containerId,folder,prefix,start,end,title){
+ const container=document.getElementById(containerId);
+ for(let i=start;i<=end;i++){
+  const card=document.createElement('article');
+  card.className='product reveal';
+  card.innerHTML=`
+   <div class="product-media"><img src="./img/${folder}/${prefix}${i}.jpg" alt="${title} ${i}" loading="lazy"></div>
+   <h3>${title} ${i}</h3>
+   <div class="product-bottom"><button class="add"><i class="fa-solid fa-cart-plus"></i> افزودن به سبد</button></div>`;
+  container.appendChild(card);
+ }
+}
+createProducts('keyboardGrid','kebord','k',1,7,'کیبورد');
+createProducts('caseGrid','kis','es',1,8,'کیس');
+createProducts('monitorGrid','manitor','mn',1,7,'مانیتور');
+createProducts('mouseGrid','mose','mo',2,8,'موس');
+
+// بارگذاری امن عکس‌های تمام محصولات؛ مسیرهای پروژه نسبت به index.html هستند.
+document.querySelectorAll('img[src^="./img/"]').forEach(img=>{
+ const original=img.getAttribute('src');
+ setProductImage(img,original);
+});
+
+
+
+// انتخاب رنگ JBL
+const jblImages=['./img/hedfon/jbl1.jpg','./img/hedfon/jbl2.jpg','./img/hedfon/jbl3.jpg'];
+const jblNames=['هدفون JBL صورتی','هدفون JBL آبی','هدفون JBL مشکی'];
+const jblBackgrounds=[
+ 'radial-gradient(circle at 15% 20%,#ffd4e4,#fff5f9 48%,#fce8f0)',
+ 'radial-gradient(circle at 15% 20%,#bfe6ff,#f2faff 48%,#dcefff)',
+ 'radial-gradient(circle at 15% 20%,#53606b,#222b34 48%,#111820)'
+];
+
+// تلاش خودکار برای پسوندهای رایج؛ مخصوصاً برای فایل‌های JBL که ممکن است JPG/PNG باشند.
+function setProductImage(img, path){
+ const dot=path.lastIndexOf('.');
+ const base=dot>-1?path.slice(0,dot):path;
+ const candidates=[path,base+'.jpeg',base+'.png',base+'.webp',base+'.JPG',base+'.JPEG',base+'.PNG'];
+ let attempt=0;
+ img.dataset.imageCandidates=JSON.stringify(candidates);
+ img.onerror=()=>{
+  attempt++;
+  if(attempt<candidates.length){img.src=candidates[attempt];}
+  else{
+   img.onerror=null;
+   img.classList.add('image-missing');
+   img.alt='تصویر پیدا نشد: '+path;
+   const holder=img.closest('.product-media, .jbl-card, .room-image-stage');
+   if(holder && !holder.querySelector('.image-error-note')){
+    const note=document.createElement('span');
+    note.className='image-error-note';
+    note.textContent='فایل عکس پیدا نشد؛ پوشه img و نام فایل را بررسی کن';
+    holder.appendChild(note);
+   }
+  }
+ };
+ img.classList.remove('image-missing');
+ const holder=img.closest('.product-media, .jbl-card, .room-image-stage');
+ if(holder)holder.querySelector('.image-error-note')?.remove();
+ img.src=candidates[0];
+}
+
+function changeJBL(index){
+ const image=document.getElementById('jblImage');
+ image.style.opacity='0';
+ image.style.transform='scale(.9)';
+ setTimeout(()=>{
+  setProductImage(image,jblImages[index-1]);
+  image.alt=jblNames[index-1];
+  image.style.opacity='1';
+  image.style.transform='scale(1)';
+ },160);
+ document.getElementById('jblName').textContent=jblNames[index-1];
+ document.getElementById('jbl').style.background=jblBackgrounds[index-1];
+ document.querySelectorAll('.color-btn').forEach((btn,i)=>btn.classList.toggle('active',i===index-1));
+}
+
+
+// اتاقک نمایش برای تمام محصولات فروشگاه، حتی کارت‌های ساخته‌شده با JavaScript
+const productRoom=document.getElementById('productRoom');
+const roomImage=document.getElementById('roomImage');
+const roomTitle=document.getElementById('roomTitle');
+let roomCurrentCard=null;
+
+function addRoomHint(card){
+ if(card.querySelector('.room-hint'))return;
+ const hint=document.createElement('span');
+ hint.className='room-hint';
+ hint.innerHTML='<i class="fa-solid fa-up-right-and-down-left-from-center"></i> مشاهده عکس کامل';
+ card.appendChild(hint);
+ card.classList.add('product-room-trigger');
+ card.setAttribute('tabindex','0');
+ card.setAttribute('role','button');
+ card.setAttribute('aria-label','نمایش کامل '+(card.querySelector('h3')?.textContent || 'محصول'));
+}
+function prepareAllProductRooms(){
+ document.querySelectorAll('.product').forEach(addRoomHint);
+ const jbl=document.querySelector('.jbl-card');
+ if(jbl){
+  jbl.classList.add('product-room-trigger');
+  if(!jbl.querySelector('.room-hint')){
+   const hint=document.createElement('span');
+   hint.className='room-hint';
+   hint.innerHTML='<i class="fa-solid fa-up-right-and-down-left-from-center"></i> مشاهده عکس کامل';
+   jbl.appendChild(hint);
+  }
+  jbl.setAttribute('tabindex','0');
+  jbl.setAttribute('role','button');
+ }
+}
+prepareAllProductRooms();
+
+function openProductRoom(card){
+ const image=card.querySelector('.product-media img, #jblImage');
+ const title=card.querySelector('h3, #jblName');
+ if(!image)return;
+ roomCurrentCard=card;
+ roomImage.removeAttribute('src');
+ roomImage.src=image.currentSrc || image.src;
+ roomImage.alt=image.alt || (title?.textContent || 'تصویر محصول');
+ roomTitle.textContent=title?.textContent || 'محصول';
+ productRoom.classList.add('open');
+ productRoom.setAttribute('aria-hidden','false');
+ document.body.style.overflow='hidden';
+}
+function closeProductRoom(){
+ productRoom.classList.remove('open');
+ productRoom.setAttribute('aria-hidden','true');
+ document.body.style.overflow='';
+ roomCurrentCard=null;
+}
+document.addEventListener('click',event=>{
+ const card=event.target.closest('.product-room-trigger');
+ if(!card || event.target.closest('.add') || event.target.closest('.color-btn'))return;
+ openProductRoom(card);
+});
+document.addEventListener('keydown',event=>{
+ if((event.key==='Enter'||event.key===' ') && event.target.classList.contains('product-room-trigger')){
+  event.preventDefault();openProductRoom(event.target);
+ }
+ if(event.key==='Escape' && productRoom.classList.contains('open'))closeProductRoom();
+});
+document.getElementById('roomClose').addEventListener('click',closeProductRoom);
+productRoom.addEventListener('click',event=>{if(event.target===productRoom)closeProductRoom()});
+document.getElementById('roomAdd').addEventListener('click',()=>{
+ if(!roomCurrentCard)return;
+ const originalButton=roomCurrentCard.querySelector('.add');
+ if(originalButton)originalButton.click();
+ const roomAdd=document.getElementById('roomAdd');
+ roomAdd.innerHTML='<i class="fa-solid fa-check"></i> اضافه شد';
+ roomAdd.classList.add('added');
+ setTimeout(()=>{
+  roomAdd.innerHTML='<i class="fa-solid fa-cart-plus"></i> افزودن به سبد';
+  roomAdd.classList.remove('added');
+ },1100);
+});
+
+// شمارنده سبد خرید نمایشی
+let cartCount=0;
+document.addEventListener('click',event=>{
+ const button=event.target.closest('.add');
+ if(!button)return;
+ cartCount++;
+ document.getElementById('cartCount').textContent=cartCount;
+ button.classList.add('added');
+ const old=button.innerHTML;
+ button.innerHTML='<i class="fa-solid fa-check"></i> اضافه شد';
+ setTimeout(()=>{button.innerHTML=old;button.classList.remove('added')},1100);
+});
+
+// جستجوی محصولات
+document.getElementById('search').addEventListener('input',function(){
+ const value=this.value.trim().toLocaleLowerCase('fa');
+ document.querySelectorAll('.product').forEach(product=>{
+  product.classList.toggle('hidden',!product.innerText.toLocaleLowerCase('fa').includes(value));
+ });
+});
+
+// انیمیشن ورود بخش‌ها و کارت‌ها هنگام اسکرول
+const observer=new IntersectionObserver(entries=>{
+ entries.forEach(entry=>{
+  if(entry.isIntersecting){
+   entry.target.classList.add('visible');
+   observer.unobserve(entry.target);
+  }
+ });
+},{threshold:.12,rootMargin:'0px 0px -35px 0px'});
+function observeReveals(){
+ document.querySelectorAll('.reveal:not(.visible)').forEach((element,index)=>{
+  if(element.classList.contains('product')){
+   element.style.setProperty('--delay',`${(index%5)*85}ms`);
+  }
+  observer.observe(element);
+ });
+}
+observeReveals();
+
+// منوی موبایل
+document.getElementById('menuToggle').addEventListener('click',()=>{
+ document.getElementById('mainNav').classList.toggle('open');
+});
+document.querySelectorAll('#mainNav a').forEach(link=>{
+ link.addEventListener('click',()=>document.getElementById('mainNav').classList.remove('open'));
+});
+
+// منوی موبایل
+(()=>{
+ const toggle=document.getElementById('mobileMenuToggle');
+ const menu=document.getElementById('mobileNav');
+ if(!toggle||!menu)return;
+ toggle.addEventListener('click',()=>{
+  const opened=menu.classList.toggle('open');
+  toggle.setAttribute('aria-expanded',String(opened));
+  toggle.innerHTML=opened?'<i class="fa-solid fa-xmark"></i>':'<i class="fa-solid fa-bars"></i>';
+ });
+ menu.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{
+  menu.classList.remove('open');
+  toggle.setAttribute('aria-expanded','false');
+  toggle.innerHTML='<i class="fa-solid fa-bars"></i>';
+ }));
+})();
+
+</script>
+</body>
+</html>
